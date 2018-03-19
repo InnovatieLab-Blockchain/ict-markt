@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
     <img src="innovatielab.png"/>    
 </p>
@@ -87,3 +88,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Inspiration
 * etc
 
+=======
+# ictmarkt2
+>>>>>>> 4f74891b16c16e44d1f09363ac980f9fec33b353
