@@ -62,7 +62,7 @@ body {font-family: 'Lato', sans-serif;
 
 #after_submit {
   display: none;
-  background: #ff5459;
+
 
   /* padding: 10px 20px 10px 20px;
   width: 400px;
@@ -70,6 +70,14 @@ body {font-family: 'Lato', sans-serif;
   float: left;
   margin-left: 20px;
   font-size: 30px; */
+}
+
+#after_claim {
+  display: none;
+}
+
+#scoreboard2 {
+  display: none;
 }
 
 
