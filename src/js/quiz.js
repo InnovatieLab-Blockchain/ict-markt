@@ -7,7 +7,7 @@ if (typeof web3 !== 'undefined') {
 }
 web3 = new Web3(web3Provider);
 
-function assertBadge() {
+function assertQuizUitslag() {
     var abi = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"issuer\",\"type\":\"address\"},{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"badgeClass\",\"type\":\"address\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"assertBadge\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"validateAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"}],\"name\":\"getAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]");
     var contractAddress = "0xf204a4ef082f5c04bb89f7d5e6568b796096735a";
     var contract = web3.eth.contract(abi).at(contractAddress);

@@ -6,6 +6,7 @@ var issuer = artifacts.require("./Issuer.sol");
 var recipient = artifacts.require("./Recipient.sol");
 var openBadges = artifacts.require("./OpenBadges.sol");
 var profile = artifacts.require("./Profile.sol");
+var quiz = artifact.require("./Quiz.sol");
 
 module.exports = function (deployer) {
 
@@ -19,5 +20,7 @@ module.exports = function (deployer) {
     deployer.deploy(recipient, "recipient003", 'ob', "Hassan Yilmaz");
     deployer.deploy(assertion, issuer.address, recipient.address, badgeClass.address, 42);
     deployer.deploy(openBadges);
+    deployer.deploy(quiz);  
+
 
 };
