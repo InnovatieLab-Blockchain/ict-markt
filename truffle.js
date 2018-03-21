@@ -18,3 +18,4 @@ module.exports = {
   };
 
   // Quiz.sol op Rinkeby: 0x779cc5bc0d5897ab88e6d8711c953e1f88ae857e
+  // 0x2d6fce86ce3142da016144a53520b2f444e7be08
