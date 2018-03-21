@@ -1,36 +1,33 @@
-
 pragma solidity ^0.4.18;
 
-
 contract Quiz {
+  // Contract owner
+  address public owner;
 
+  // Score of participants
+  // mapping(address => bool[10]) private score;
+  mapping(address => uint) private score;
 
-   // Contract owner
-    address public owner;
+  event Scored(address, uint);
 
-   // Score of participants
-   // mapping(address => bool[10]) private score;
-    mapping(address => uint) private score;
+  function Quiz() public {
+    owner = msg.sender;
+  }
 
-    event Scored();
+  function setScore(address participant, uint _score) public {
+    require(msg.sender == owner);
+    score[participant] = _score;
+    Scored(participant, _score);
+  }
 
-    function Quiz() public {
-        owner = msg.sender;
-    }
+  function getScore(address participant) public view returns (uint) {
+    require(msg.sender == owner);
+    return score[participant];
+  }
 
-    function setScore(address participant, uint _score) public {
-        require(msg.sender == owner);
-        score[participant] = _score;
-    }
-
-    function getScore(address participant) public view returns (uint) {
-        require(msg.sender == owner);
-        return score[participant];
-    }
-
-    /* function updateScore() public {
-     // Calls the callback function
-        /* Scored(); */
-    } 
+  function kill() public {
+    require(msg.sender == owner);
+    selfdestruct(this);
+  }
 
 }
