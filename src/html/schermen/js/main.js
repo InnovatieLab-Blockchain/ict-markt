@@ -78,8 +78,10 @@ function check() {
     document.getElementById("badge").src = badges[range];
     document.getElementById("knop").innerHTML = knop[range];
     document.getElementById("reject").innerHTML = reject[range];
+    console.log(correct)
+    console.log(status[range])
+    set_score(correct, status[range]);
 
-    set_score(correct, status);
 }
 
 function readCounter() {
