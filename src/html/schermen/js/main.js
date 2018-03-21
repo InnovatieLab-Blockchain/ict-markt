@@ -79,7 +79,7 @@ function check() {
     document.getElementById("knop").innerHTML = knop[range];
     document.getElementById("reject").innerHTML = reject[range];
 
-    set_score(correct);
+    set_score(correct, status);
 }
 
 function readCounter() {

@@ -103,7 +103,3 @@ function retrieveBadge(location) {
 
 }
 
-initContract: function() {
-
-  return App.bindEvents();
-},

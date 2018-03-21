@@ -1,4 +1,4 @@
-var web3Provider;
+let web3Provider;
 
 if (typeof web3 !== 'undefined') {
     web3Provider = web3.currentProvider;
@@ -6,7 +6,7 @@ if (typeof web3 !== 'undefined') {
     web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
 }
 web3 = new Web3(web3Provider);
-
+const MNID = uportconnect.MNID;
 const Credentials = uportconnect.Credentials;
 const Connect = uportconnect.Connect;
 const SimpleSigner = uportconnect.SimpleSigner;
@@ -22,7 +22,7 @@ const lab_connector = new Connect('Innovatielab Blockchain', {
     clientId: '2osVEge5GkpT3tJWdzr2TpfwdjsEo27MEoc',
     network: 'rinkeby',
     signer: SimpleSigner('497369198844fe973c9cadc8bdc5b0634fe01cd3ffe69944884cb6506c7f7be4')
-})
+});
 
 
 // global variables to reuse
@@ -41,7 +41,7 @@ const quiz_connect = function () {
         // callbackUrl:'student.html',
         notifications: true // We want this if we want to recieve credentials
     })
-        .then((credentials) = > {
+        .then((credentials) => {
         // Do something (in this case print all credentials)
         console.log("Credentials:", credentials);
     user_data.uportId = credentials.address;
@@ -56,7 +56,7 @@ const quiz_connect = function () {
     document.getElementById("userName").innerHTML = userName;
     document.getElementById("after_login").style.display = "inline";
     // window.location.href = "studen t.html";
-})
+});
 };
 
 // attest/issue badge
@@ -73,7 +73,7 @@ const uportAttest = function () {
         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
         // uriHandler: (log) => { console.log(log)}
     })
-        .then((attestation) = > {
+        .then((attestation) => {
         console.log("Attestation = " + attestation);
     // document.getElementById("scoreboard").style.display = "inline";
     document.getElementById("after_claim").style.display = "inline";
@@ -97,7 +97,7 @@ const uportAttest1 = function () {
         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
         // uriHandler: (log) => { console.log(log)}
     })
-        .then((attestation) = > {
+        .then((attestation) => {
         console.log("Attestation = " + attestation);
     document.getElementById("after_claim").style.display = "inline";
     document.getElementById("after_submit").style.display = "none";
@@ -120,7 +120,7 @@ const uportAttest2 = function () {
         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
         // uriHandler: (log) => { console.log(log)}
     })
-        .then((attestation) = > {
+        .then((attestation) => {
         console.log("Attestation = " + attestation);
     document.getElementById("after_claim").style.display = "inline";
     document.getElementById("after_submit").style.display = "none";
@@ -141,7 +141,7 @@ const uportAttest3 = function () {
         },
         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
     })
-        .then((attestation) = > {
+        .then((attestation) => {
         console.log("Attestation = " + attestation);
     // window.location.href = "index.html";
     document.getElementById("after_claim").style.display = "inline";
@@ -153,15 +153,133 @@ const uportAttest3 = function () {
 })
 };
 
-function set_score(score) {
-    var abi = require('../build/contracts/Quiz.json').abi;
+const contract_abi = JSON.parse("[\n" +
+        "    {\n" +
+        "      \"constant\": false,\n" +
+        "      \"inputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"participant\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"name\": \"_title\",\n" +
+        "          \"type\": \"string\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"name\": \"_score\",\n" +
+        "          \"type\": \"uint256\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"name\": \"setScore\",\n" +
+        "      \"outputs\": [],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"nonpayable\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"constant\": false,\n" +
+        "      \"inputs\": [],\n" +
+        "      \"name\": \"kill\",\n" +
+        "      \"outputs\": [],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"nonpayable\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"constant\": true,\n" +
+        "      \"inputs\": [],\n" +
+        "      \"name\": \"owner\",\n" +
+        "      \"outputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"view\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"constant\": true,\n" +
+        "      \"inputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"participant\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"name\": \"getScore\",\n" +
+        "      \"outputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"uint256\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"view\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"constant\": true,\n" +
+        "      \"inputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"participant\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"name\": \"getTitleAndScore\",\n" +
+        "      \"outputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"string\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"uint256\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"view\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"inputs\": [],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"nonpayable\",\n" +
+        "      \"type\": \"constructor\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"anonymous\": false,\n" +
+        "      \"inputs\": [\n" +
+        "        {\n" +
+        "          \"indexed\": false,\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"indexed\": false,\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"string\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"indexed\": false,\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"uint256\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"name\": \"Scored\",\n" +
+        "      \"type\": \"event\"\n" +
+        "    }\n" +
+        "  ]");
+
+function set_score(score, status) {
+    var abi = contract_abi;
     console.log(abi);
     var contractAddres = "0x779CC5BC0D5897aB88E6d8711c953E1F88aE857e";
     var contract = web3.eth.contract(abi).at(contractAddres);
-    var participant = user_data.uportId;
+    var participant = MNID.decode(user_data.uportId);
 
-    contract.setScore.sendTransaction(participant, score, {
-            from: web3.eth.accounts[0],
+    contract.setScore.sendTransaction(participant, status, score, {
+            from: "0x7D4E2bF714C8F4AB2451cfA437A1f71fA81ad4Bf",
             gas: 400000
         },
         function (error, result) {
@@ -174,14 +292,14 @@ function set_score(score) {
 }
 
 function get_score() {
-    var abi = require('../build/contracts/Quiz.json').abi;
+    var abi = contract_abi;
     console.log(abi);
     var contractAddres = "0x779CC5BC0D5897aB88E6d8711c953E1F88aE857e";
     var contract = web3.eth.contract(abi).at(contractAddres);
-    var participant = user_data.uportId;
+    var participant = MNID.decode(user_data.uportId);
 
     contract.getScore.call(participant, {
-            from: web3.eth.accounts[0],
+            from: "0x7D4E2bF714C8F4AB2451cfA437A1f71fA81ad4Bf",
             gas: 400000
         },
         function (error, result) {
