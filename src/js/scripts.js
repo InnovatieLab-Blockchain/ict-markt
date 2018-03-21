@@ -8,7 +8,123 @@ if (typeof web3 !== 'undefined') {
 web3 = new Web3(web3Provider);
 
 function assertBadge() {
-    var abi = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"issuer\",\"type\":\"address\"},{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"badgeClass\",\"type\":\"address\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"assertBadge\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"validateAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"}],\"name\":\"getAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]");
+    var abi = JSON.parse("[\n" +
+        "    {\n" +
+        "      \"constant\": false,\n" +
+        "      \"inputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"participant\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"name\": \"_title\",\n" +
+        "          \"type\": \"string\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"name\": \"_score\",\n" +
+        "          \"type\": \"uint256\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"name\": \"setScore\",\n" +
+        "      \"outputs\": [],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"nonpayable\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"constant\": false,\n" +
+        "      \"inputs\": [],\n" +
+        "      \"name\": \"kill\",\n" +
+        "      \"outputs\": [],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"nonpayable\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"constant\": true,\n" +
+        "      \"inputs\": [],\n" +
+        "      \"name\": \"owner\",\n" +
+        "      \"outputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"view\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"constant\": true,\n" +
+        "      \"inputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"participant\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"name\": \"getScore\",\n" +
+        "      \"outputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"uint256\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"view\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"constant\": true,\n" +
+        "      \"inputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"participant\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"name\": \"getTitleAndScore\",\n" +
+        "      \"outputs\": [\n" +
+        "        {\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"string\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"uint256\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"view\",\n" +
+        "      \"type\": \"function\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"inputs\": [],\n" +
+        "      \"payable\": false,\n" +
+        "      \"stateMutability\": \"nonpayable\",\n" +
+        "      \"type\": \"constructor\"\n" +
+        "    },\n" +
+        "    {\n" +
+        "      \"anonymous\": false,\n" +
+        "      \"inputs\": [\n" +
+        "        {\n" +
+        "          \"indexed\": false,\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"address\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"indexed\": false,\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"string\"\n" +
+        "        },\n" +
+        "        {\n" +
+        "          \"indexed\": false,\n" +
+        "          \"name\": \"\",\n" +
+        "          \"type\": \"uint256\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"name\": \"Scored\",\n" +
+        "      \"type\": \"event\"\n" +
+        "    }\n" +
+        "  ]");
     var contractAddress = "0xf204a4ef082f5c04bb89f7d5e6568b796096735a";
     var contract = web3.eth.contract(abi).at(contractAddress);
     var studentAddresses = document.getElementById("addresses");
