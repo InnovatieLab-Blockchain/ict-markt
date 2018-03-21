@@ -2,6 +2,13 @@
   const Connect = uportconnect.Connect;
   const SimpleSigner = uportconnect.SimpleSigner;
 
+
+  // const duo_connector = new Connect('DUO', {
+  //     clientId: '2oynp4geSgBwqkQebaYtexB32rCNbPmLu5K',
+  //     network: 'rinkeby',
+  //     signer: SimpleSigner('69c9446852693c00bd0a8825fad8297e4f9db34c9562a660585a0e767f993bd7')
+  // });
+
   const lab_connector = new Connect('Innovatielab Blockchain', {
       clientId: '2osVEge5GkpT3tJWdzr2TpfwdjsEo27MEoc',
       network: 'rinkeby',
