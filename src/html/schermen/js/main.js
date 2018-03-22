@@ -14,7 +14,7 @@ function check() {
         correct++;
     }
     if (vraag2 == "c") {
-        correct ++;
+        correct++;
     }
     if (vraag3 == "d") {
         correct++;

@@ -6,7 +6,7 @@ var issuer = artifacts.require("./Issuer.sol");
 var recipient = artifacts.require("./Recipient.sol");
 var openBadges = artifacts.require("./OpenBadges.sol");
 var profile = artifacts.require("./Profile.sol");
-var quiz = artifacts.require("./Quiz.sol");
+var quiz = artifacts.require("./Quiz2.sol");
 
 module.exports = function (deployer) {
 
