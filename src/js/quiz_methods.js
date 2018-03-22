@@ -314,7 +314,7 @@ function set_score(score, status) {
 
 
     contract.setScore.sendTransaction(participant.address, status, score, {
-            from: "0x748855235DE0b1958393f31909Bc2B9080a98E2C",
+            from: "0x76ee3fde66d39797bdfca0bb002b40d2b3ebfca9",
             gas: 400000
         },
         function (error, result) {
@@ -335,7 +335,7 @@ function get_score() {
     var participant = MNID.decode(user_data.uportId);
 
     contract.getScore.call(participant, {
-            from: "0x7D4E2bF714C8F4AB2451cfA437A1f71fA81ad4Bf",
+            from: "0x76ee3fde66d39797bdfca0bb002b40d2b3ebfca9",
             gas: 400000
         },
         function (error, result) {
