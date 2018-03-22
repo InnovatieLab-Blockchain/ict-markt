@@ -312,12 +312,14 @@ function set_score(score, status) {
     var contract = web3.eth.contract(abi).at(contractAddres);
     var participant = MNID.decode(user_data.uportId);
 
-    contract.setScore.sendTransaction(participant, status, score, {
+
+    contract.setScore.sendTransaction(participant.address, status, score, {
             from: "0x7D4E2bF714C8F4AB2451cfA437A1f71fA81ad4Bf",
             gas: 400000
         },
         function (error, result) {
             if (!error) {
+                console.log("hoi")
                 console.log(result);
             } else {
                 console.error(error);
