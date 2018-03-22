@@ -59,99 +59,133 @@ const quiz_connect = function () {
 });
 };
 
+// // attest/issue badge
+// const uportAttest = function () {
+//     lab_connector.attestCredentials({
+//         sub: user_data.uportId,
+//         claim: {
+//             Blockchainquiz: {
+//                 naam: 'LABMASTER',
+//                 description: 'Je had alle vragen goed bij de blockchainquiz en daarmee heb je de titel "LABMASTER" verdient.'
+//             }
+//         },
+//         // callbackUrl: 'student2.html',
+//         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
+//         // uriHandler: (log) => { console.log(log)}
+//     })
+//         .then((attestation) => {
+//         console.log("Attestation = " + attestation);
+//     // document.getElementById("scoreboard").style.display = "inline";
+//     document.getElementById("after_claim").style.display = "inline";
+//     document.getElementById("after_submit").style.display = "none";
+//     document.getElementById("userName").style.display = "none";
+//     readCounter();
+// })
+// };
+//
+// // attest/issue badge
+// const uportAttest1 = function () {
+//     lab_connector.attestCredentials({
+//         sub: user_data.uportId,
+//         claim: {
+//             Blockchainquiz: {
+//                 Naam: 'LABORANT',
+//                 Toelichting: 'Je bent goed op de hoogte wat betreft blockchain, je verdient de title "LABORANT"',
+//                 Score: ""
+//
+//             }
+//         },
+//         // callbackUrl: 'student2.html',
+//         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
+//         // uriHandler: (log) => { console.log(log)}
+//     })
+//         .then((attestation) => {
+//         console.log("Attestation = " + attestation);
+//     document.getElementById("after_claim").style.display = "inline";
+//     document.getElementById("after_submit").style.display = "none";
+//     document.getElementById("userName").style.display = "none";
+//     readCounter();
+// })
+// };
+//
+// // attest/issue badge
+// const uportAttest2 = function () {
+//     lab_connector.attestCredentials({
+//         sub: user_data.uportId,
+//         claim: {
+//             Blockchainquiz: {
+//                 naam: 'LABASSISTENT',
+//                 description: 'De basis is er, nu nog even doorleren. Je krijgt de titel "LABASSISTENT"'
+//             }
+//         },
+//         // callbackUrl: 'student2.html',
+//         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
+//         // uriHandler: (log) => { console.log(log)}
+//     })
+//         .then((attestation) => {
+//         console.log("Attestation = " + attestation);
+//     document.getElementById("after_claim").style.display = "inline";
+//     document.getElementById("after_submit").style.display = "none";
+//     document.getElementById("userName").style.display = "none";
+//     readCounter();
+// })
+// };
+//
+// // attest/issue badge 3
+// const uportAttest3 = function () {
+//     lab_connector.attestCredentials({
+//         sub: user_data.uportId,
+//         claim: {
+//             Blockchainquiz: {
+//                 naam: 'LABVEGER',
+//                 description: 'Er is nog veel ruimte voor verbetering, je mag jezelf "LABVEGER" noemen'
+//             }
+//         },
+//         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
+//     })
+//         .then((attestation) => {
+//         console.log("Attestation = " + attestation);
+//     // window.location.href = "index.html";
+//     document.getElementById("after_claim").style.display = "inline";
+//     document.getElementById("after_submit").style.display = "none";
+//     document.getElementById("userName").style.display = "none";
+//     readCounter();
+//     //
+//
+// })
+// };
+
 // attest/issue badge
-const uportAttest = function () {
+var desc = ['Je had alle vragen goed bij de blockchainquiz! Master!',
+'Je bent goed op de hoogte wat betreft blockchain',
+'De basis is er, nu nog even doorleren',
+'Er is nog veel ruimte voor verbetering']
+var title = ["LABMASTER", "LABORANT", "LABASSISTENT", "LABVEGER"];
+
+// attest/issue badge
+const uportAttest = function (arg1, arg2, score) {
     lab_connector.attestCredentials({
         sub: user_data.uportId,
         claim: {
             Blockchainquiz: {
-                naam: 'LABMASTER',
-                description: 'Je had alle vragen goed bij de blockchainquiz en daarmee heb je de titel "LABMASTER" verdient.'
+                Titel: '' + title[arg1],
+                Toelichting: '' + desc[arg2],
+                Score: '' + score
             }
         },
         // callbackUrl: 'student2.html',
         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
         // uriHandler: (log) => { console.log(log)}
-    })
-        .then((attestation) => {
-        console.log("Attestation = " + attestation);
-    // document.getElementById("scoreboard").style.display = "inline";
-    document.getElementById("after_claim").style.display = "inline";
-    document.getElementById("after_submit").style.display = "none";
-    document.getElementById("userName").style.display = "none";
-    readCounter();
-})
-};
-
-// attest/issue badge
-const uportAttest1 = function () {
-    lab_connector.attestCredentials({
-        sub: user_data.uportId,
-        claim: {
-            Blockchainquiz: {
-                naam: 'LABORANT',
-                description: 'Je bent goed op de hoogte wat betreft blockchain, je verdient de title "LABORANT"'
-            }
-        },
-        // callbackUrl: 'student2.html',
-        exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
-        // uriHandler: (log) => { console.log(log)}
-    })
-        .then((attestation) => {
-        console.log("Attestation = " + attestation);
-    document.getElementById("after_claim").style.display = "inline";
-    document.getElementById("after_submit").style.display = "none";
-    document.getElementById("userName").style.display = "none";
-    readCounter();
-})
-};
-
-// attest/issue badge
-const uportAttest2 = function () {
-    lab_connector.attestCredentials({
-        sub: user_data.uportId,
-        claim: {
-            Blockchainquiz: {
-                naam: 'LABASSISTENT',
-                description: 'De basis is er, nu nog even doorleren. Je krijgt de titel "LABASSISTENT"'
-            }
-        },
-        // callbackUrl: 'student2.html',
-        exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
-        // uriHandler: (log) => { console.log(log)}
-    })
-        .then((attestation) => {
-        console.log("Attestation = " + attestation);
-    document.getElementById("after_claim").style.display = "inline";
-    document.getElementById("after_submit").style.display = "none";
-    document.getElementById("userName").style.display = "none";
-    readCounter();
-})
-};
-
-// attest/issue badge 3
-const uportAttest3 = function () {
-    lab_connector.attestCredentials({
-        sub: user_data.uportId,
-        claim: {
-            Blockchainquiz: {
-                naam: 'LABVEGER',
-                description: 'Er is nog veel ruimte voor verbetering, je mag jezelf "LABVEGER" noemen'
-            }
-        },
-        exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
-    })
-        .then((attestation) => {
-        console.log("Attestation = " + attestation);
-    // window.location.href = "index.html";
-    document.getElementById("after_claim").style.display = "inline";
-    document.getElementById("after_submit").style.display = "none";
-    document.getElementById("userName").style.display = "none";
-    readCounter();
-    //
-
-})
-};
+        })
+        .then(function (attestation) {
+            console.log("Attestation = " + attestation);
+            // document.getElementById("scoreboard").style.display = "inline";
+            document.getElementById("after_claim").style.display = "inline";
+            document.getElementById("after_submit").style.display = "none";
+            document.getElementById("userName").style.display = "none";
+            readCounter();
+        })
+}
 
 const contract_abi = JSON.parse("[\n" +
         "    {\n" +

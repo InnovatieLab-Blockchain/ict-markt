@@ -2,250 +2,250 @@
 <html lang="nl-NL">
 
 <head>
-    <meta charset="utf-8">
-    <title>ICT-Markt blockchain quiz</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="icon" href="../uno/dist/components/favicon/ro-favicon-donkergeel-0xffb612.png">
-    <link rel="stylesheet" href="../uno/dist/core/uno.css">
-    <script src="../systemjs/dist/system.js"></script>
-    <script type="text/javascript" src="../../../node_modules/web3/dist/web3.js"></script>
-    <script type="text/javascript" src="../../../node_modules/uport-connect/dist/uport-connect.js"></script>
-    <script src="https://unpkg.com/uport-connect/dist/uport-connect.min.js"></script>
-    <script src="js/main.js">
-    </script>
-    <link href="css/style.css" rel="stylesheet">
-    <script type="text/javascript">
-    < script >
-
-        System.config({
-            "defaultJSExtensions": true
-        });
-    </script>
-    <!--[if lt IE 9]>
+  <meta charset="utf-8">
+  <title>ICT-Markt blockchain quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="icon" href="../uno/dist/components/favicon/ro-favicon-donkergeel-0xffb612.png">
+  <link rel="stylesheet" href="../uno/dist/core/uno.css">
+  <script src="../systemjs/dist/system.js"></script>
+  <script type="text/javascript" src="../../../node_modules/web3/dist/web3.js"></script>
+  <script type="text/javascript" src="../../../node_modules/uport-connect/dist/uport-connect.js"></script>
+  <script src="https://unpkg.com/uport-connect/dist/uport-connect.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <link rel="stylesheet" href="css/style.css" rel="stylesheet">
+  <script type="text/javascript">
+      System.config({
+        "defaultJSExtensions": true
+      });
+  </script>
+  <!--[if lt IE 9]>
     <script src="uno/core/compatibility/polyfill-ie8.js"></script>
     <script src="uno/vendor/js/html5shiv.min.js"></script>
   <![endif]-->
 </head>
 
 <body>
-    <div class="wrapper">
-        <a class="skiplink" href="#content">
+  <div class="wrapper">
+    <a class="skiplink" href="#content">
       <span class="skiplink__text">Ga direct naar inhoud</span>
     </a>
-        <header class="header header--transparent" role="banner">
-            <div class="headerLAB-logo">
-                <a href="/duo/onderwijsorganisaties/" title="Logo Dienst Uitvoering Onderwijs"></a>
+    <header class="header header--transparent" role="banner">
+      <div class="headerLAB-logo">
+        <a href="/duo/onderwijsorganisaties/" title="Logo Dienst Uitvoering Onderwijs"></a>
+      </div>
+    </header>
+
+    <main class="skiplink-target main" id="content" tabindex="-1">
+      <div class="container">
+        <header class="row" id="header">
+          <div class="col-xl-12">
+            <div class="content content--header">
+              <section class="content-header">
+                <h1>De grote Blockchainquiz</h1>
+                <p>Wat weet jij van blockchain, smart contracts, private keys en public keys?
+                  <Br>Beantwoord de vragen en registreer jouw badge op onze eigen blockchain!</p>
+              </section>
             </div>
+          </div>
         </header>
+        <article id="login">
+          <div class="container">
+            <div class="row">
 
-        <main class="skiplink-target main" id="content" tabindex="-1">
-            <div class="container">
-                <header class="row" id="header">
-                    <div class="col-xl-12">
-                        <div class="content content--header">
-                            <section class="content-header">
-                                <h1>De grote Blockchainquiz</h1>
-                                <p>Wat weet jij van blockchain, smart contracts, private keys en public keys?<Br>Beantwoord de vragen en registreer jouw badge op onze eigen blockchain!</p>
-                            </section>
-                        </div>
+              <div class="col-xl-3">
+                <div class="content-background">
+                  <div class="content">
+                    <center>
+                      <img src="img/quiz.png" class="responsive" alt="Quiz">
+                    </center>
+                    <p></p>
+                    <h3>Scan de code met uPort</h3>
+                    <p></p>
+                    <div class="input">
+                      <a class="btn btn--primary" href="#" onclick="quiz_connect()">Log in</a>
                     </div>
-                </header>
-<article id = "login">
-    <div class = "container">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3">
+                <div class="content-background">
+                  <div class="content">
+                    <center>
+                      <img src="img/highscore.png" class="responsive" alt="Highscore">
+                    </center>
+                    <p></p>
+                    <h3>Bekijk de highscore van vandaag</h3>
+                    <p></p>
+                    <div class="input">
+                      <a class="btn btn--primary" href="#" onclick="scoreBoard()">Scoreboard</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3">
+                <div class="content-background">
+                  <div class="content">
+                    <center>
+                      <img src="img/info.png" class="responsive" alt="Info">
+                    </center>
+                    <p></p>
+                    <h3>Extra info</h3>
+                    <p></p>
+                    <div class="input">
+                      <a class="btn btn--primary" href="https://rinkeby.etherscan.io/" target="_blank">Rinkeby</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+        </article>
+        </div>
+        <article>
           <div class="row">
+            <div class="col-xl-12">
+              <div id="after_loginName">
+                <center>
 
-            <div class="col-xl-3">
-              <div class="content-background">
-                <div class="content"><center>
-                  <img src="img/quiz.png" class="responsive" alt="Studenten">
-                  </center>
-                  <p></p>
-                  <h3>Scan de code met uPort</h3>
-                  <p></p>
-                  <div class="input">
-                    <a class="btn btn--primary" href="#" onclick="quiz_connect()">Log in</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-3">
-              <div class="content-background">
-                <div class="content"><center>
-                  <img src="img/highscore.png" class="responsive" alt="Studenten">
+                  <h1 id="userName" /></div>
               </center>
-                  <p></p>
-                  <h3>Bekijk de highscore van vandaag</h3>
-                  <p></p>
-                  <div class="input">
-                    <a class="btn btn--primary" href="#" onclick="scoreBoard()">Scoreboard</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <article>
+                <div id="after_login" class="col-xl-6 col-xl-offset-3">
+                  <form id="quiz" name="quiz">
+                    <div class="content-background">
 
-            <div class="col-xl-3">
-              <div class="content-background">
-                <div class="content">
-                  <center>
-                  <img src="img/info.png" class="responsive" alt="Studenten">
-                </center>
-                  <p></p>
-                  <h3>Extra info</h3>
-                  <p></p>
-                  <div class="input">
-                    <a class="btn btn--primary" href="#" onclick="#">Extra info</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+                      <div class="content">
+                        <h2>Succes met de quiz!</h2>
+                        <fieldset class="input">
+                          <p>
+                            <div style="background-color:Whitesmoke;">
+                              <legend class="background--hemelblauw">Vraag 1: Wat is een blockchain?</legend>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag1" value="a">Een netwerk van computers dat complexe berekeningen
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag1" value="b">Een gedistribueerde database waarbij iedere node de inhoud valideert.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag1" value="c">Een netwerk van computers dat parallel berekeningen uitvoert.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag1" value="d">Een wifinetwerk dat meerdere huizenblokken met elkaar verbindt.
+                              </div>
+                            </div>
+                          </p>
+                          <p>
+                            <div style="background-color:Whitesmoke;">
+                              <legend class="background--hemelblauw">Vraag 2: Wie/wat is de bedenker van de blockchain-technologie?</legend>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag2" value="a">Google
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag2" value="b">Edsger Dijkstra
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag2" value="c">Satoshi Nakamoto
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag2" value="d">Steve Jobs
+                              </div>
+                            </div>
+                          </p>
 
-
-    </div>
-</article>
-</div>
-                 <article>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div id="after_loginName">
-                                <center>
-
-                                    <h1 id="userName" /></div>
-                            </center>
-                            <article>
-                                <div id="after_login" class="col-xl-6 col-xl-offset-3">
-                                    <form id="quiz" name="quiz">
-                                        <div class="content-background">
-
-                                            <div class="content">
-                                                <h2>Succes met de quiz!</h2>
-                                                <fieldset class="input">
-                                                <p>
-                                                  <div style="background-color:Whitesmoke;">
-                                                    <legend class="background--hemelblauw">Vraag 1: Wat is een blockchain?</legend>
-                                                    <div class="input__group input__group--radio" >
-                                                        <input type="radio" id="mc" name="vraag1" value="a">Een netwerk van computers dat complexe berekeningen
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag1" value="b">Een gedistribueerde database waarbij iedere node de inhoud valideert.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag1" value="c">Een netwerk van computers dat parallel berekeningen uitvoert.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag1" value="d">Een wifinetwerk dat meerdere huizenblokken met elkaar verbindt.
-                                                    </div>
-                                                  </div>
-                                                </p>
-                                                <p>
-                                                <div style="background-color:Whitesmoke;">
-                                                    <legend class="background--hemelblauw">Vraag 2: Wie/wat is de bedenker van de blockchain-technologie?</legend>
-                                                    <div class="input__group input__group--radio">
-                                                    <input type="radio" id="mc" name="vraag2" value="a">Google
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag2" value="b">Edsger Dijkstra
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag2" value="c">Satoshi Nakamoto
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag2" value="d">Steve Jobs
-                                                    </div>
-                                                </div>
-                                                </p>
-
-                                                <p>
-                                                    <div style="background-color:Whitesmoke;">
-                                                    <legend class="background--hemelblauw">Vraag 3: Wat is een smart contract?</legend>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag3" value="a">Een contract dat rekening houdt met verschillende scenario’s.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag3" value="b">Een programma dat zelf met oplossingen komt in onverwachte situaties.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag3" value="c">Een intelligente samenwerking tussen verschillende blockchains.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag3" value="d">Een programma dat op de blockchain geplaatst wordt en dat in vooraf gedefinieerde situaties actief wordt.
-                                                    </div>
-                                                </div>
-                                                </p>
-                                                <p>
-                                                <div style="background-color:Whitesmoke;">
-                                                    <legend class="background--hemelblauw">Vraag 4: Wat is de blockchainhoofdstad van Nederland?</legend>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag4" value="a">Delft
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag4" value="b">Amsterdam
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag4" value="c">Groningen
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag4" value="d">Enschede
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                    </div>
-                                                </div>
-                                                </p>
-                                                <p>
-                                                <div style="background-color:Whitesmoke;">
-                                                    <legend class="background--hemelblauw">Vraag 5 : Wat is een private key?</legend>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag5" value="a">Een hash van een inlognaam en wachtwoord in één.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag5" value="b">Een cryptografische sleutel waarmee privégegevens (op de blockchain) ver of -ontsleuteld kunnen worden.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag5" value="c">Een privé bestand dat je van de blockchain kunt downloaden voor eigen gebruik.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag5" value="d">Een besloten blockchain binnen een bedrijf of instelling.
-                                                    </div>
-                                                  </div>
-                                                </p>
-                                                <p>
-                                                <div style="background-color:Whitesmoke;">
-                                                    <legend class="background--hemelblauw">Vraag 6 : Wat zijn microcredentials?</legend>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag6" value="a">(Deel) Berekeningen voor de validatie van een block.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                      <input type="radio" id="mc" name="vraag6" value="b">Aanbevelingen van collega’s.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag6" value="c">Aanbevelingen van docenten.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag6" value="d">(Deel) Certificaten die iemand kan ontvangen.
-                                                    </div>
-                                                </div>
-                                                </p>
-                                                <p>
-                                                <div style="background-color:Whitesmoke;">
-                                                    <legend class="background--hemelblauw">Vraag 7 : Hoe wis je gegevens van de blockchain?</legend>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag7" value="a">Iets wat eenmaal op een blockchain staat kan er nooit meer af.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag7" value="b">Je kunt geen informatie wissen maar wel overschrijven.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag7" value="c">Je vervangt een volledig blok door een dummy-blok.
-                                                    </div>
-                                                    <div class="input__group input__group--radio">
-                                                        <input type="radio" id="mc" name="vraag7" value="d">Je behoudt het gegeven maar versleutelt het.
-                                                    </div>
-                                                </div>
-                                                </p>
+                          <p>
+                            <div style="background-color:Whitesmoke;">
+                              <legend class="background--hemelblauw">Vraag 3: Wat is een smart contract?</legend>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag3" value="a">Een contract dat rekening houdt met verschillende scenario’s.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag3" value="b">Een programma dat zelf met oplossingen komt in onverwachte situaties.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag3" value="c">Een intelligente samenwerking tussen verschillende blockchains.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag3" value="d">Een programma dat op de blockchain geplaatst wordt en dat in vooraf gedefinieerde situaties actief wordt.
+                              </div>
+                            </div>
+                          </p>
+                          <p>
+                            <div style="background-color:Whitesmoke;">
+                              <legend class="background--hemelblauw">Vraag 4: Wat is de blockchainhoofdstad van Nederland?</legend>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag4" value="a">Delft
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag4" value="b">Amsterdam
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag4" value="c">Groningen
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag4" value="d">Enschede
+                              </div>
+                              <div class="input__group input__group--radio">
+                              </div>
+                            </div>
+                          </p>
+                          <p>
+                            <div style="background-color:Whitesmoke;">
+                              <legend class="background--hemelblauw">Vraag 5 : Wat is een private key?</legend>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag5" value="a">Een hash van een inlognaam en wachtwoord in één.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag5" value="b">Een cryptografische sleutel waarmee privégegevens (op de blockchain) ver of -ontsleuteld kunnen worden.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag5" value="c">Een privé bestand dat je van de blockchain kunt downloaden voor eigen gebruik.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag5" value="d">Een besloten blockchain binnen een bedrijf of instelling.
+                              </div>
+                            </div>
+                          </p>
+                          <p>
+                            <div style="background-color:Whitesmoke;">
+                              <legend class="background--hemelblauw">Vraag 6 : Wat zijn microcredentials?</legend>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag6" value="a">(Deel) Berekeningen voor de validatie van een block.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag6" value="b">Aanbevelingen van collega’s.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag6" value="c">Aanbevelingen van docenten.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag6" value="d">(Deel) Certificaten die iemand kan ontvangen.
+                              </div>
+                            </div>
+                          </p>
+                          <p>
+                            <div style="background-color:Whitesmoke;">
+                              <legend class="background--hemelblauw">Vraag 7 : Hoe wis je gegevens van de blockchain?</legend>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag7" value="a">Iets wat eenmaal op een blockchain staat kan er nooit meer af.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag7" value="b">Je kunt geen informatie wissen maar wel overschrijven.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag7" value="c">Je vervangt een volledig blok door een dummy-blok.
+                              </div>
+                              <div class="input__group input__group--radio">
+                                <input type="radio" id="mc" name="vraag7" value="d">Je behoudt het gegeven maar versleutelt het.
+                              </div>
+                            </div>
+                          </p>
                                                     <div class="input">
                                                         <p align="center">
-                                                            <input id="button" class="btn btn--primary" type="button" value="Ik ben klaar met de test" onclick="check();">
+                                                            <input id="button1" class="btn btn--primary" type="button" value="Ik ben klaar met de test" onclick="check();"></input>
                                                         </p>
                                                     </div>
                                             </div>
@@ -253,60 +253,61 @@
                                     </form>
                             </article>
 
-                            <article>
-                                <!-- na invullen van de test -->
-                                <div id="after_submit" class="col-xl-6 col-xl-offset-3">
-                                    <div class="content-background">
-                                        <div font-size: 16px;>
-                                            <center>
-                                                <p id="number_correct"></p>
-                                                <p id="bericht"></p>
-                                                <font size="3">Je hebt de badge verdient:</font>
-                                                <br>
-                                                <img id="badge" width="100  px">
-                                                <br>
-                                                <h3><p id="status"></p></h3>
-                                                <img id="picture"></p>
-                                                <table>
-                                                    <tr>
-                                                        <td>
-                                                            <p id="knop"></p>
-                                                        </td>
-                                                        <td>
-                                                            <p id="reject" style="background-color:Tomato;">
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+              <article>
+                <!-- na invullen van de test -->
+                <div id="after_submit" class="col-xl-6 col-xl-offset-3">
+                  <div class="content-background">
+                    <div font-size: 16px;>
+                      <center>
+                        <p id="number_correct"></p>
+                        <p id="bericht"></p>
+                        <font size="3">Je hebt de badge verdiend:</font>
+                        <br>
+                        <img id="badge" width="100  px">
+                        <br>
+                        <h3><p id="status"></p></h3>
+                        <img id="picture"></p>
+                        <table>
+                          <tr>
+                            <td>
+                              <p id="knop"></p>
+                            </td>
+                            <td>
+                              <p id="reject" style="background-color:Tomato;">
+                            </td>
+                          </tr>
+                        </table>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </article>
 
-                            <article> <!-- na claimen van de badge -->
-                                <div id="after_claim" class="col-xl-6 col-xl-offset-3">
-                                    <div class="content-background">
-                                        <center>
-                                            <div class="background--hemelblauw">
-                                                <p>
-                                                    <br>
-                                                    <h3>Innovatielab Scoreboard</h3>
-                                                    <br>
-                                                </p>
-                                            </div>
-                                            <table style="width:100%">
-                                                <tr>
-                                                    <th> </th>
-                                                    <th>Badge</th>
-                                                    <th>Aantal keer uitgereikt</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <center><img src="img/labmaster.png" width="70px"></center>
-                                                    </td>
-                                                    <td>
-                                                        <center>
-                                                            <h5>LABMASTER<h5></center></td>
+              <article>
+                <!-- na claimen van de badge -->
+                <div id="after_claim" class="col-xl-6 col-xl-offset-3">
+                  <div class="content-background">
+                    <center>
+                      <div class="background--hemelblauw">
+                        <p>
+                          <br>
+                          <h3>Innovatielab Scoreboard</h3>
+                          <br>
+                        </p>
+                      </div>
+                      <table style="width:100%">
+                        <tr>
+                          <th> </th>
+                          <th>Badge</th>
+                          <th>Aantal keer uitgereikt</th>
+                        </tr>
+                        <tr>
+                          <td>
+                            <center><img src="img/labmaster.png" width="70px"></center>
+                          </td>
+                          <td>
+                            <center>
+                              <h5>LABMASTER<h5></center></td>
                                         <td><center><h2 id = "LABMASTER" /></center></td>
                                       </tr>
                                       <tr>

@@ -11,10 +11,10 @@ function check() {
 
 
     if (vraag1 == "b") {
-        correct = correct + 1;
+        correct++;
     }
     if (vraag2 == "c") {
-        correct = correct + 1.3;
+        correct ++;
     }
     if (vraag3 == "d") {
         correct++;
@@ -33,11 +33,23 @@ function check() {
     }
 
     var berichten = ["Ultimate hero", "Good Job", "Het begin is er", "Nait zo best"];
+
     var antwoord = ["Je hebt " + correct + " vraag goed!", "Je hebt " + correct + " vragen goed!"];
     var pictures = ["img/win.gif", "img/mid.gif", "img/meh.gif", "img/loser.gif"];
     var badges = ["img/labmaster.png", "img/laborant.png", "img/labassistent.png", "img/labveger.png"];
     var status = ["LABMASTER", "LABORANT", "LABASSISTENT", "LABVEGER"];
-    var knop = ["<a class=\"btn btn--primary\" onclick=\"uportAttest()\">Claim je badge</a>", "<a class=\"btn btn--primary\" onclick=\"uportAttest1()\">Claim je badge</a>", "<a class=\"btn btn--primary\" onclick=\"uportAttest2()\">Claim je badge</a>", "<a class=\"btn btn--primary\" onclick=\"uportAttest3()\">Claim je badge</a>"];
+    var sc = [ "<a class=\"btn btn--primary\" onclick=\"uportAttest(" + 0 + "," + 0 + "," + correct + ")\">Claim je badge</a>",
+    "<a class=\"btn btn--primary\" onclick=\"uportAttest(" + 1 + "," + 1 + "," + correct + ")\">Claim je badge</a>",
+    "<a class=\"btn btn--primary\" onclick=\"uportAttest(" + 2 + "," + 2 + "," + correct + ")\">Claim je badge</a>",
+    "<a class=\"btn btn--primary\" onclick=\"uportAttest(" + 3 + "," + 3 + "," + correct + ")\">Claim je badge</a>"
+    ]
+    // var sc = [ "<a class=\"btn btn--primary\" onclick=\"uportAttest(" + 0 + "," + 1 + ")\">Claim je badge</a>",
+    // "<a class=\"btn btn--primary\" onclick=\"uportAttest(" + correct + "," + correct++ + ")\">Claim je badge</a>",
+    // "<a class=\"btn btn--primary\" onclick=\"uportAttest(" + correct + "," + correct++ + ")\">Claim je badge</a>",
+    // "<a class=\"btn btn--primary\" onclick=\"uportAttest(" + correct + "," + correct++ + ")\">Claim je badge</a>"
+    //    ];
+    console.log("Sc: ", sc)
+    var knop = [ sc[0], sc[1], sc[2], sc[3] ]
     var reject = ["<a class=\"btn btn--primary\" onclick=\"redirect\" style=\"background-color:Tomato;\">Weiger je badge</a>", "<a class=\"btn btn--primary\" onclick=\"redirect()\" style=\"background-color:Tomato;\">Weiger je badge</a>", "<a class=\"btn btn--primary\" onclick=\"redirect()\" style=\"background-color:Tomato;\">Weiger je badge</a>", "<a class=\"btn btn--primary\" onclick=\"redirect()\" style=\"background-color:Tomato;\">Weiger je badge</a>"];
 
     var range;
